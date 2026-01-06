@@ -43,7 +43,18 @@ def main():
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, language_choice))
 
     print("🔥 DateMeBot running")
+profile_handler = ConversationHandler(
+    entry_points=[CommandHandler("pro", ask_gender)],
+    states={
+        GENDER: [MessageHandler(filters.TEXT & ~filters.COMMAND, save_gender)],
+        LOOKING: [MessageHandler(filters.TEXT & ~filters.COMMAND, save_looking)],
+        AGE: [MessageHandler(filters.TEXT & ~filters.COMMAND, save_age)],
+        CITY: [MessageHandler(filters.TEXT & ~filters.COMMAND, save_city)],
+    },
+    fallbacks=[]
+)
 
+app.add_handler(profile_handler)
     app.run_polling()
 
 if __name__ == "__main__":
