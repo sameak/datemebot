@@ -41,8 +41,8 @@ T = {
 
         "gender": "Select your sex:",
         "looking": "Looking for:",
-        "age": "Select your age:",
         "age_more": "Select your age range:",
+        "age": "Select your age:",
         "city": "Choose your city (Cambodia):",
         "bio": "Write a short bio (max 150) or type S to skip.",
         "photo": "Send 1 photo (optional) or tap Skip Photo.",
@@ -90,8 +90,8 @@ T = {
 
         "gender": "ជ្រើសរើសភេទ:",
         "looking": "អ្នកកំពុងស្វែងរកដៃគូរ:",
-        "age": "សូមជ្រើសរើសអាយុ:",
         "age_more": "សូមជ្រើសរើសជួរអាយុ:",
+        "age": "សូមជ្រើសរើសអាយុ:",
         "city": "សូមជ្រើសរើសទីក្រុង (កម្ពុជា):",
         "bio": "សូមសរសេរព័ត៌មានខ្លីអំពីអ្នក (មិនលើស 150) ឬវាយ S ដើម្បីរំលង។",
         "photo": "ផ្ញើរូប 1 (ជាជម្រើស) ឬចុច រំលងរូប។",
@@ -127,8 +127,7 @@ T = {
     }
 }
 
-# ================= CITIES (full names) =================
-# store key, display name per lang
+# ================= CITIES =================
 CITIES = [
     ("PP", {"en": "Phnom Penh", "kh": "ភ្នំពេញ"}),
     ("SR", {"en": "Siem Reap", "kh": "សៀមរាប"}),
@@ -298,8 +297,7 @@ def gender_keyboard(lang: str):
 def looking_keyboard(lang: str):
     return gender_keyboard(lang)
 
-def age_keyboard(lang: str):
-    # 18-30 + "31-40" + "41+"
+def age_keyboard():
     return ReplyKeyboardMarkup(
         [
             ["18", "19", "20", "21"],
@@ -312,18 +310,14 @@ def age_keyboard(lang: str):
 
 def age_31_40_keyboard():
     return ReplyKeyboardMarkup(
-        [
-            ["31", "32", "33", "34"],
-            ["35", "36", "37", "38"],
-            ["39", "40"],
-        ],
+        [["31", "32", "33", "34"],
+         ["35", "36", "37", "38"],
+         ["39", "40"]],
         resize_keyboard=True
     )
 
 def city_keyboard(lang: str):
-    # 2 per row
-    rows = []
-    row = []
+    rows, row = [], []
     for key, names in CITIES:
         row.append(f"{key} • {names[lang]}")
         if len(row) == 2:
@@ -359,7 +353,6 @@ def normalize_gender(lang: str, text: str):
         return None
 
 def normalize_city_key(text: str):
-    # expects "PP • Phnom Penh" etc or "PP"
     if not text:
         return None
     s = text.strip().split()[0].upper()
@@ -469,7 +462,7 @@ async def cmd_add(update: Update, context: ContextTypes.DEFAULT_TYPE):
     set_user(target, stars=max(0, current + delta))
     await update.message.reply_text(f"✅ {target} stars: {current} -> {max(0, current + delta)}")
 
-# ================= CORE HANDLERS =================
+# ================= CORE =================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     upsert(uid)
@@ -484,11 +477,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def sta(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await start(update, context)
-
-async def show_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    uid = update.effective_user.id
-    lang = get_lang(uid)
-    await update.message.reply_text(T[lang]["lang_saved"], reply_markup=menu_keyboard(lang))
 
 async def pro(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
@@ -615,49 +603,19 @@ async def handle_reveal(update: Update, context: ContextTypes.DEFAULT_TYPE):
     set_user(uid, stars=stars - REVEAL_COST)
     set_reveal_paid(uid, target, 1)
 
-    # If both paid -> reveal username + photos (if exist)
     if is_reveal_paid(uid, target) and is_reveal_paid(target, uid):
-        # reveal usernames
         other_chat = await context.bot.get_chat(target)
         if other_chat.username:
             await update.message.reply_text(T[lang]["reveal_success_user"].format(username=other_chat.username))
         else:
             await update.message.reply_text(T[lang]["reveal_no_username"])
-
-        try:
-            me_chat = await context.bot.get_chat(uid)
-            other_lang = get_lang(target)
-            if me_chat.username:
-                await context.bot.send_message(chat_id=target, text=T[other_lang]["reveal_success_user"].format(username=me_chat.username))
-            else:
-                await context.bot.send_message(chat_id=target, text=T[other_lang]["reveal_no_username"])
-        except Exception:
-            pass
-
-        # reveal photos if available
-        cur.execute("SELECT photo_id FROM users WHERE user_id=?", (target,))
-        other_photo = cur.fetchone()
-        other_photo_id = other_photo[0] if other_photo else None
-
-        cur.execute("SELECT photo_id FROM users WHERE user_id=?", (uid,))
-        my_photo = cur.fetchone()
-        my_photo_id = my_photo[0] if my_photo else None
-
-        if other_photo_id:
-            await context.bot.send_photo(chat_id=uid, photo=other_photo_id, caption=T[lang]["reveal_photo_sent"])
-        if my_photo_id:
-            try:
-                other_lang = get_lang(target)
-                await context.bot.send_photo(chat_id=target, photo=my_photo_id, caption=T[other_lang]["reveal_photo_sent"])
-            except Exception:
-                pass
         return
 
     await update.message.reply_text(T[lang]["reveal_paid_wait"].format(cost=REVEAL_COST))
 
 # ================= ROUTER =================
 PROFILE_STEPS = {
-    "pro_gender", "pro_looking", "pro_age", "pro_age_31_40",
+    "pro_gender", "pro_looking", "pro_age", "pro_age_31_40", "pro_age_41plus",
     "pro_city", "pro_bio", "pro_photo",
     "edit_menu", "edit_age", "edit_city", "edit_bio", "edit_photo",
 }
@@ -667,20 +625,19 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     upsert(uid)
     step, lang, banned = get_flags(uid)
 
-    # banned
     if banned == 1:
         await update.message.reply_text(T[lang]["banned"], reply_markup=ReplyKeyboardRemove())
         return
 
-    # accept "start/sta" without slash
     text = (update.message.text or "").strip()
     t = text.lower()
 
+    # Start shortcuts
     if t in ("start", "sta"):
         await start(update, context)
         return
 
-    # language selection
+    # Language selection
     if step == "lang":
         if text.upper().startswith("K"):
             set_user(uid, lang="kh", step="idle")
@@ -693,18 +650,18 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["btn_only"], reply_markup=language_keyboard())
         return
 
-    # enforce buttons only (outside profile/edit steps)
-    if (step not in PROFILE_STEPS) and (not has_profile(uid)):
+    # ✅ FIXED: only block when IDLE (never interrupt profile steps)
+    if (not has_profile(uid)) and (step == "idle"):
         if text == T[lang]["btn_create_profile"]:
             await pro(update, context)
             return
-        if text in (T[lang]["btn_help"],):
+        if text == T[lang]["btn_help"]:
             await update.message.reply_text(T[lang]["help"], reply_markup=menu_keyboard(lang))
             return
         await update.message.reply_text(T[lang]["need_profile"], reply_markup=menu_keyboard(lang))
         return
 
-    # menu buttons
+    # Menu
     if text == T[lang]["btn_create_profile"]:
         await pro(update, context)
         return
@@ -721,11 +678,11 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await edit_profile(update, context)
         return
 
-    # edit menu
+    # Edit menu
     if step == "edit_menu":
         if text == T[lang]["edit_age"]:
             set_user(uid, step="edit_age")
-            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard(lang))
+            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard())
             return
         if text == T[lang]["edit_city"]:
             set_user(uid, step="edit_city")
@@ -746,7 +703,7 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["btn_only"], reply_markup=edit_keyboard(lang))
         return
 
-    # profile steps
+    # Profile creation
     if step == "pro_gender":
         g = normalize_gender(lang, text)
         if not g:
@@ -762,36 +719,38 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(T[lang]["btn_only"], reply_markup=looking_keyboard(lang))
             return
         set_user(uid, looking=g, step="pro_age")
-        await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard(lang))
+        await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard())
         return
 
     if step in ("pro_age", "edit_age"):
         if text == "31-40":
-            set_user(uid, step="pro_age_31_40" if step == "pro_age" else "pro_age_31_40")  # reuse
+            set_user(uid, step="pro_age_31_40")
             await update.message.reply_text(T[lang]["age"], reply_markup=age_31_40_keyboard())
             return
         if text == "41+":
-            # Must type
-            await update.message.reply_text("Type your age number:", reply_markup=ReplyKeyboardRemove())
             set_user(uid, step="pro_age_41plus")
+            await update.message.reply_text("Type your age number:", reply_markup=ReplyKeyboardRemove())
             return
+
         if not text.isdigit():
-            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard(lang))
+            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard())
             return
+
         age = int(text)
         if age < 18:
             set_user(uid, banned=1, step="idle")
             await update.message.reply_text(T[lang]["underage"], reply_markup=ReplyKeyboardRemove())
             return
         if age > 80:
-            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard(lang))
+            await update.message.reply_text(T[lang]["age_more"], reply_markup=age_keyboard())
             return
+
         set_user(uid, age=age)
-        # continue based on edit vs profile
         if step == "edit_age":
             set_user(uid, step="edit_menu")
             await update.message.reply_text(T[lang]["saved"], reply_markup=edit_keyboard(lang))
             return
+
         set_user(uid, step="pro_city")
         await update.message.reply_text(T[lang]["city"], reply_markup=city_keyboard(lang))
         return
@@ -858,7 +817,7 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["photo"], reply_markup=photo_keyboard(lang))
         return
 
-    # matching buttons
+    # Matching buttons
     if text == T[lang]["btn_like"]:
         await handle_like(update, context)
         return
@@ -869,10 +828,9 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_reveal(update, context)
         return
 
-    # default
     await update.message.reply_text(T[lang]["btn_only"], reply_markup=menu_keyboard(lang))
 
-# PHOTO HANDLER (separate because photos are not TEXT)
+# Photo handler
 async def photo_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     upsert(uid)
@@ -880,48 +838,27 @@ async def photo_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if banned == 1:
         await update.message.reply_text(T[lang]["banned"], reply_markup=ReplyKeyboardRemove())
         return
-
-    # only accept photo in pro_photo/edit_photo steps
     if step not in ("pro_photo", "edit_photo"):
         return
-
     if update.message.photo:
         photo_id = update.message.photo[-1].file_id
-        set_user(uid, photo_id=photo_id)
-        if step == "edit_photo":
-            set_user(uid, step="edit_menu")
-            await update.message.reply_text(T[lang]["saved"], reply_markup=edit_keyboard(lang))
-            return
-        # finish profile
-        set_user(uid, step="idle")
+        set_user(uid, photo_id=photo_id, step="idle")
         await update.message.reply_text(T[lang]["saved"], reply_markup=menu_keyboard(lang))
         await show_my_profile(update, context)
-        return
 
-# TEXT handler handles "Skip Photo"
-async def text_extra_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def skip_photo_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     upsert(uid)
     step, lang, banned = get_flags(uid)
     if banned == 1:
         await update.message.reply_text(T[lang]["banned"], reply_markup=ReplyKeyboardRemove())
         return
-
     text = (update.message.text or "").strip()
-
-    if step in ("pro_photo", "edit_photo"):
-        if text == T[lang]["skip_photo"]:
-            set_user(uid, photo_id="")
-            if step == "edit_photo":
-                set_user(uid, step="edit_menu")
-                await update.message.reply_text(T[lang]["saved"], reply_markup=edit_keyboard(lang))
-                return
-            set_user(uid, step="idle")
-            await update.message.reply_text(T[lang]["saved"], reply_markup=menu_keyboard(lang))
-            await show_my_profile(update, context)
-            return
-
-    # fall back to main router
+    if step == "pro_photo" and text == T[lang]["skip_photo"]:
+        set_user(uid, photo_id="", step="idle")
+        await update.message.reply_text(T[lang]["saved"], reply_markup=menu_keyboard(lang))
+        await show_my_profile(update, context)
+        return
     await router(update, context)
 
 # ================= MAIN =================
@@ -929,22 +866,22 @@ def main():
     init_db()
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # commands
+    # user commands
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("sta", sta))
     app.add_handler(CommandHandler("pro", pro))
 
-    # admin commands (3-letter style)
-    app.add_handler(CommandHandler("sta", cmd_stats))  # admin stats (same command name, admin only)
+    # admin commands
+    app.add_handler(CommandHandler("sta", cmd_stats))  # only works for admins
     app.add_handler(CommandHandler("ban", cmd_ban))
     app.add_handler(CommandHandler("unb", cmd_unb))
     app.add_handler(CommandHandler("add", cmd_add))
 
-    # photos
+    # photos first
     app.add_handler(MessageHandler(filters.PHOTO, photo_router))
 
-    # text (includes skip photo + router)
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_extra_router))
+    # text router (also handles Skip Photo)
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, skip_photo_router))
 
     print("🔥 DateMeBot running")
     app.run_polling()
