@@ -245,10 +245,10 @@ def menu_keyboard(lang: str):
     )
 
 def gender_keyboard(lang: str):
-    return ReplyKeyboardMarkup([["ប្រុស", "ស្រី"]] if lang == "kh" else [["Male", "Female"]], resize_keyboard=True)
+    return ReplyKeyboardMarkup([["👨 ប្រុស", "👩 ស្រី"]] if lang == "kh" else [["Male", "Female"]], resize_keyboard=True)
 
 def looking_keyboard(lang: str):
-    return ReplyKeyboardMarkup([["ប្រុស", "ស្រី"]] if lang == "kh" else [["Male", "Female"]], resize_keyboard=True)
+    return ReplyKeyboardMarkup([["👨 ប្រុស", "👩 ស្រី"]] if lang == "kh" else [["Male", "Female"]], resize_keyboard=True)
 
 def city_keyboard():
     return ReplyKeyboardMarkup([["PP", "SR", "BT"], ["SHV", "O"]], resize_keyboard=True)
@@ -262,10 +262,10 @@ def match_keyboard(lang: str, allow_reveal: bool):
 def normalize_gender(lang: str, text: str):
     t = (text or "").strip().lower()
     if lang == "kh":
-        if t == "ប្រុស":
-            return "M"
-        if t == "ស្រី":
-            return "F"
+        if "ប្រុស" in t:
+    return "M"
+if "ស្រី" in t:
+    return "F"
     else:
         if t in ("male", "m"):
             return "M"
@@ -477,12 +477,12 @@ async def text_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     # Force "no typing" when no profile: ignore typed text and show menu
-    if not has_profile(uid):
-        if text in (T[lang]["btn_create_profile"], T[lang]["btn_match"], T[lang]["btn_help"]):
-            pass
-        else:
-            await update.message.reply_text(T[lang]["btn_only"], reply_markup=menu_keyboard(lang))
-            return
+    if (not has_profile(uid)) and (step not in ("pro_gender", "pro_looking", "pro_age", "pro_city", "pro_bio")):
+    if text in (T[lang]["btn_create_profile"], T[lang]["btn_match"], T[lang]["btn_help"]):
+        pass
+    else:
+        await update.message.reply_text(T[lang]["btn_only"], reply_markup=menu_keyboard(lang))
+        return
 
     # Menu buttons
     if text == T[lang]["btn_create_profile"]:
