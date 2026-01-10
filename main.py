@@ -44,6 +44,7 @@ T = {
         "btn_profile": "My Profile",
         "btn_edit": "Edit Profile",
         "btn_help": "Help",
+        "btn_admin": "Admin Panel",
 
         "need_profile": "Please create your profile first ✅\nTap Create Profile.",
         "help": "Help:\nUse buttons.\nStart: start/sta (/start /sta ok)\n",
@@ -68,6 +69,14 @@ T = {
         "btn_like": "❤️ Like",
         "btn_skip": "⏭ Skip",
         "btn_reveal": "🔓 Reveal",
+        "btn_report": "🚩 Report",
+
+        "report_q": "🚩 Report this user. Choose a reason:",
+        "report_done": "✅ Report sent. Thank you.",
+        "rep_spam": "Spam/Ads",
+        "rep_fake": "Fake profile",
+        "rep_bad": "Harassment",
+        "rep_other": "Other",
 
         "matched": "🎉 It's a match!\nPay ⭐ to reveal each other.",
         "reveal_need_match": "🔒 Reveal is only after you match.",
@@ -84,6 +93,22 @@ T = {
         "edit_bio": "Edit Bio",
         "edit_photo": "Edit Photo",
         "done": "Done",
+
+        "admin_menu": "🛠 Admin Panel (buttons only):",
+        "adm_stats": "📊 Stats",
+        "adm_reports": "🧾 View Reports",
+        "adm_ban_reply": "🚫 Ban Replied User",
+        "adm_unban_reply": "✅ Unban Replied User",
+        "adm_star_reply": "⭐ +3 Stars Replied User",
+        "adm_close": "❌ Close",
+
+        "adm_need_reply": "Reply to a user's message first, then tap this button.",
+        "adm_banned_ok": "✅ Banned user_id: {uid}",
+        "adm_unbanned_ok": "✅ Unbanned user_id: {uid}",
+        "adm_star_ok": "✅ Added +3 ⭐ to user_id: {uid}",
+        "adm_reports_empty": "No reports yet.",
+        "adm_reports_title": "🧾 Latest reports (last 10):",
+        "my_id": "Your ID is: {uid}",
     },
     "kh": {
         "welcome": "💖 ស្វាគមន៍មកកាន់ DateMe\nសូមជ្រើសរើសភាសា។",
@@ -95,6 +120,7 @@ T = {
         "btn_profile": "ប្រូហ្វាល់ខ្ញុំ",
         "btn_edit": "កែប្រែប្រូហ្វាល់",
         "btn_help": "ជំនួយ",
+        "btn_admin": "ផ្ទាំងអ្នកគ្រប់គ្រង",
 
         "need_profile": "សូមបង្កើតប្រូហ្វាល់ជាមុនសិន ✅\nសូមចុច បង្កើតប្រូហ្វាល់",
         "help": "ជំនួយ:\nសូមប្រើប៊ូតុង។\nStart: start/sta (/start /sta ក៏បាន)\n",
@@ -119,6 +145,14 @@ T = {
         "btn_like": "❤️ ពេញចិត្ត",
         "btn_skip": "⏭ រំលង",
         "btn_reveal": "🔓 បង្ហាញមុខ",
+        "btn_report": "🚩 រាយការណ៍",
+
+        "report_q": "🚩 រាយការណ៍អ្នកនេះ។ សូមជ្រើសរើសមូលហេតុ:",
+        "report_done": "✅ បានផ្ញើរាយការណ៍។ អរគុណ។",
+        "rep_spam": "សារផ្សព្វផ្សាយ",
+        "rep_fake": "ប្រូហ្វាល់ក្លែងក្លាយ",
+        "rep_bad": "រំខាន/បំពាន",
+        "rep_other": "ផ្សេងៗ",
 
         "matched": "🎉 ត្រូវគ្នា!\nសូមបង់ ⭐ ដើម្បីបង្ហាញមុខគ្នា។",
         "reveal_need_match": "🔒 'បង្ហាញមុខ' អាចប្រើបានតែបន្ទាប់ពីត្រូវគ្នា។",
@@ -135,10 +169,26 @@ T = {
         "edit_bio": "កែព័ត៌មាន",
         "edit_photo": "កែរូប",
         "done": "រួចរាល់",
+
+        "admin_menu": "🛠 ផ្ទាំងអ្នកគ្រប់គ្រង (ប៊ូតុងប៉ុណ្ណោះ):",
+        "adm_stats": "📊 ស្ថិតិ",
+        "adm_reports": "🧾 មើលរាយការណ៍",
+        "adm_ban_reply": "🚫 បិទ Replied User",
+        "adm_unban_reply": "✅ ដោះបិទ Replied User",
+        "adm_star_reply": "⭐ +3 Stars Replied User",
+        "adm_close": "❌ បិទ",
+
+        "adm_need_reply": "សូម Reply ទៅសាររបស់អ្នកប្រើជាមុនសិន ហើយចុចប៊ូតុងនេះ។",
+        "adm_banned_ok": "✅ បានបិទ user_id: {uid}",
+        "adm_unbanned_ok": "✅ បានដោះបិទ user_id: {uid}",
+        "adm_star_ok": "✅ បានបន្ថែម +3 ⭐ ទៅ user_id: {uid}",
+        "adm_reports_empty": "មិនទាន់មានរាយការណ៍ទេ។",
+        "adm_reports_title": "🧾 រាយការណ៍ថ្មីៗ (10 ចុងក្រោយ):",
+        "my_id": "ID របស់អ្នកគឺ: {uid}",
     }
 }
 
-# ================= CITIES (Cambodia Only) =================
+# ================= CITIES =================
 CITIES = [
     ("PP", {"en": "Phnom Penh", "kh": "ភ្នំពេញ"}),
     ("SR", {"en": "Siem Reap", "kh": "សៀមរាប"}),
@@ -150,7 +200,7 @@ CITIES = [
     ("O", {"en": "Other", "kh": "ផ្សេងៗ"}),
 ]
 
-# ================= DB (Postgres) =================
+# ================= DB =================
 conn = psycopg2.connect(DATABASE_URL)
 conn.autocommit = True
 
@@ -213,12 +263,18 @@ def init_db():
         UNIQUE(payer, other)
     )
     """)
+    db_exec("""
+    CREATE TABLE IF NOT EXISTS reports (
+        id BIGSERIAL PRIMARY KEY,
+        reporter BIGINT NOT NULL,
+        reported BIGINT NOT NULL,
+        reason TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW()
+    )
+    """)
 
 def upsert(uid: int):
-    db_exec(
-        "INSERT INTO users (user_id, stars) VALUES (%s, %s) ON CONFLICT (user_id) DO NOTHING",
-        (uid, DEFAULT_STARS),
-    )
+    db_exec("INSERT INTO users (user_id, stars) VALUES (%s, %s) ON CONFLICT (user_id) DO NOTHING", (uid, DEFAULT_STARS))
 
 def get_lang(uid: int) -> str:
     r = db_one("SELECT lang FROM users WHERE user_id=%s", (uid,))
@@ -265,10 +321,7 @@ def make_match(a: int, b: int):
     db_exec("INSERT INTO matches (user1, user2) VALUES (%s,%s) ON CONFLICT DO NOTHING", (u1, u2))
 
 def set_reveal_paid(payer: int, other: int, paid: int):
-    db_exec(
-        "INSERT INTO reveal_pay (payer, other, paid) VALUES (%s,%s,0) ON CONFLICT DO NOTHING",
-        (payer, other),
-    )
+    db_exec("INSERT INTO reveal_pay (payer, other, paid) VALUES (%s,%s,0) ON CONFLICT DO NOTHING", (payer, other))
     db_exec("UPDATE reveal_pay SET paid=%s WHERE payer=%s AND other=%s", (paid, payer, other))
 
 def is_reveal_paid(payer: int, other: int) -> bool:
@@ -278,25 +331,27 @@ def is_reveal_paid(payer: int, other: int) -> bool:
 def get_user_profile(uid: int):
     return db_one("SELECT gender, looking, age, city_key, bio, photo_id, stars FROM users WHERE user_id=%s", (uid,))
 
+def add_report(reporter: int, reported: int, reason: str):
+    db_exec("INSERT INTO reports (reporter, reported, reason) VALUES (%s,%s,%s)", (reporter, reported, reason))
+
 # ================= KEYBOARDS =================
 def kb_language():
     return ReplyKeyboardMarkup([["K 🇰🇭 ភាសាខ្មែរ", "E 🇬🇧 English"]], resize_keyboard=True)
 
-def kb_menu(lang: str):
-    return ReplyKeyboardMarkup(
-        [
-            [T[lang]["btn_match"], T[lang]["btn_create_profile"]],
-            [T[lang]["btn_profile"], T[lang]["btn_edit"]],
-            [T[lang]["btn_help"]],
-        ],
-        resize_keyboard=True,
-    )
+def kb_menu(lang: str, uid: int):
+    base = [
+        [T[lang]["btn_match"], T[lang]["btn_create_profile"]],
+        [T[lang]["btn_profile"], T[lang]["btn_edit"]],
+        [T[lang]["btn_help"]],
+    ]
+    if is_admin(uid):
+        base.append([T[lang]["btn_admin"]])
+    return ReplyKeyboardMarkup(base, resize_keyboard=True)
 
 def kb_gender(lang: str):
     return ReplyKeyboardMarkup([["👨 ប្រុស", "👩 ស្រី"]] if lang == "kh" else [["Male", "Female"]], resize_keyboard=True)
 
 def kb_age(lang: str):
-    # buttons for "numeric keypad" feeling
     return ReplyKeyboardMarkup(
         [
             ["18", "19", "20", "21"],
@@ -328,9 +383,17 @@ def kb_photo(lang: str):
 
 def kb_match(lang: str, allow_reveal: bool):
     row1 = [T[lang]["btn_like"], T[lang]["btn_skip"]]
+    row2 = [T[lang]["btn_report"]]
     if allow_reveal:
-        return ReplyKeyboardMarkup([row1, [T[lang]["btn_reveal"]]], resize_keyboard=True)
-    return ReplyKeyboardMarkup([row1], resize_keyboard=True)
+        row1 = [T[lang]["btn_like"], T[lang]["btn_skip"], T[lang]["btn_reveal"]]
+    return ReplyKeyboardMarkup([row1, row2], resize_keyboard=True)
+
+def kb_report(lang: str):
+    return ReplyKeyboardMarkup(
+        [[T[lang]["rep_spam"], T[lang]["rep_fake"]],
+         [T[lang]["rep_bad"], T[lang]["rep_other"]]],
+        resize_keyboard=True
+    )
 
 def kb_edit(lang: str):
     return ReplyKeyboardMarkup(
@@ -338,6 +401,17 @@ def kb_edit(lang: str):
             [T[lang]["edit_age"], T[lang]["edit_city"]],
             [T[lang]["edit_bio"], T[lang]["edit_photo"]],
             [T[lang]["done"]],
+        ],
+        resize_keyboard=True,
+    )
+
+def kb_admin(lang: str):
+    return ReplyKeyboardMarkup(
+        [
+            [T[lang]["adm_stats"], T[lang]["adm_reports"]],
+            [T[lang]["adm_ban_reply"], T[lang]["adm_unban_reply"]],
+            [T[lang]["adm_star_reply"]],
+            [T[lang]["adm_close"]],
         ],
         resize_keyboard=True,
     )
@@ -381,13 +455,11 @@ def get_current(context: ContextTypes.DEFAULT_TYPE):
 def reset_current(context: ContextTypes.DEFAULT_TYPE):
     context.user_data.pop("current_target", None)
 
-# ================= MATCHING =================
 def find_candidate(uid: int):
     me = db_one("SELECT gender, looking FROM users WHERE user_id=%s", (uid,))
     if not me or not me[0] or not me[1]:
         return None
     my_gender, my_looking = me[0], me[1]
-
     r = db_one(
         """
         SELECT u.user_id
@@ -427,6 +499,12 @@ def profile_card(target_id: int, viewer_lang: str, viewer_stars: int):
     city = city_name(ckey, viewer_lang)
     return T[viewer_lang]["card"].format(sex=sex, age=age, city=city, bio=bio, stars=viewer_stars)
 
+# ================= COMMANDS =================
+async def cmd_id(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    lang = get_lang(uid)
+    await update.message.reply_text(T[lang]["my_id"].format(uid=uid))
+
 # ================= HANDLERS =================
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
@@ -439,13 +517,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(T[lang]["welcome"], reply_markup=kb_language())
 
 async def sta(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    # behave like start shortcut (sta = start)
     await start(update, context)
 
 async def show_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     lang = get_lang(uid)
-    await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_menu(lang))
+    await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_menu(lang, uid))
 
 async def create_profile(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
@@ -461,29 +538,37 @@ async def my_profile(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lang = get_lang(uid)
     p = get_user_profile(uid)
     if not p:
-        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang, uid))
         return
     g, looking, age, ckey, bio, photo_id, stars = p
     if not g or not looking or not age or not ckey:
-        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang, uid))
         return
-
     sex = ("ប្រុស" if g == "M" else "ស្រី") if lang == "kh" else ("Male" if g == "M" else "Female")
     lk = ("ប្រុស" if looking == "M" else "ស្រី") if lang == "kh" else ("Male" if looking == "M" else "Female")
     city = city_name(ckey, lang)
     bio_txt = bio if bio else ("(គ្មាន)" if lang == "kh" else "(empty)")
     has_photo = "✅" if photo_id else "❌"
     msg = f"👤 {sex} | {age}\n🔎 {lk}\n📍 {city}\n📝 {bio_txt}\n📸 Photo: {has_photo}\n⭐ {stars}"
-    await update.message.reply_text(msg, reply_markup=kb_menu(lang))
+    await update.message.reply_text(msg, reply_markup=kb_menu(lang, uid))
 
 async def edit_profile(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     lang = get_lang(uid)
     if not has_profile(uid):
-        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang, uid))
         return
     set_user(uid, step="edit_menu")
     await update.message.reply_text(T[lang]["edit_menu"], reply_markup=kb_edit(lang))
+
+async def admin_panel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    lang = get_lang(uid)
+    if not is_admin(uid):
+        await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_menu(lang, uid))
+        return
+    set_user(uid, step="admin_menu")
+    await update.message.reply_text(T[lang]["admin_menu"], reply_markup=kb_admin(lang))
 
 async def show_candidate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
@@ -492,13 +577,13 @@ async def show_candidate(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["banned"], reply_markup=ReplyKeyboardRemove())
         return
     if not has_profile(uid):
-        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang, uid))
         return
 
     cand = find_candidate(uid)
     if not cand:
         reset_current(context)
-        await update.message.reply_text(T[lang]["no_more"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["no_more"], reply_markup=kb_menu(lang, uid))
         return
 
     set_current(context, cand)
@@ -516,8 +601,6 @@ async def handle_like(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     add_like(uid, target)
-
-    # if they liked back -> match
     if is_liked(target, uid):
         make_match(uid, target)
         await update.message.reply_text(T[lang]["matched"], reply_markup=kb_match(lang, True))
@@ -535,6 +618,16 @@ async def handle_skip(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if target:
         add_skip(uid, target)
     await show_candidate(update, context)
+
+async def handle_report(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    uid = update.effective_user.id
+    lang = get_lang(uid)
+    target = get_current(context)
+    if not target:
+        await show_menu(update, context)
+        return
+    set_user(uid, step="report_reason")
+    await update.message.reply_text(T[lang]["report_q"], reply_markup=kb_report(lang))
 
 async def handle_reveal(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
@@ -558,13 +651,10 @@ async def handle_reveal(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["no_stars"].format(stars=stars))
         return
 
-    # charge
     set_user(uid, stars=stars - REVEAL_COST)
     set_reveal_paid(uid, target, 1)
 
-    # if both paid -> reveal username + photo (if any)
     if is_reveal_paid(uid, target) and is_reveal_paid(target, uid):
-        # reveal target to me
         other_chat = await context.bot.get_chat(target)
         other_profile = get_user_profile(target)
         other_photo_id = other_profile[5] if other_profile else None
@@ -580,7 +670,6 @@ async def handle_reveal(update: Update, context: ContextTypes.DEFAULT_TYPE):
             except Exception:
                 pass
 
-        # reveal me to target
         try:
             me_chat = await context.bot.get_chat(uid)
             me_profile = get_user_profile(uid)
@@ -603,57 +692,26 @@ async def handle_reveal(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     await update.message.reply_text(T[lang]["reveal_paid_wait"].format(cost=REVEAL_COST))
 
-# ================= ADMIN COMMANDS =================
-async def cmd_stats(update: Update, context: ContextTypes.DEFAULT_TYPE):
+# ================= PHOTO ROUTER =================
+async def photo_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
-    if not is_admin(uid):
+    upsert(uid)
+    step, lang, banned = get_flags(uid)
+    if banned == 1:
         return
-    total = db_one("SELECT COUNT(*) FROM users")[0]
-    banned = db_one("SELECT COUNT(*) FROM users WHERE banned=1")[0]
-    await update.message.reply_text(f"Stats:\nUsers: {total}\nBanned: {banned}")
-
-async def cmd_ban(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    uid = update.effective_user.id
-    if not is_admin(uid):
+    if step not in ("pro_photo", "edit_photo"):
         return
-    if not context.args or not context.args[0].isdigit():
-        await update.message.reply_text("Usage: /ban <user_id>")
-        return
-    target = int(context.args[0])
-    set_user(target, banned=1, step="idle")
-    await update.message.reply_text(f"✅ banned {target}")
-
-async def cmd_unb(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    uid = update.effective_user.id
-    if not is_admin(uid):
-        return
-    if not context.args or not context.args[0].isdigit():
-        await update.message.reply_text("Usage: /unb <user_id>")
-        return
-    target = int(context.args[0])
-    set_user(target, banned=0, step="idle")
-    await update.message.reply_text(f"✅ unbanned {target}")
-
-async def cmd_add(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    uid = update.effective_user.id
-    if not is_admin(uid):
-        return
-    if len(context.args) < 2 or (not context.args[0].isdigit()) or (not context.args[1].lstrip("-").isdigit()):
-        await update.message.reply_text("Usage: /add <user_id> <stars>")
-        return
-    target = int(context.args[0])
-    delta = int(context.args[1])
-    current = get_stars(target)
-    set_user(target, stars=max(0, current + delta))
-    await update.message.reply_text(f"✅ {target} stars: {current} -> {max(0, current + delta)}")
+    if update.message.photo:
+        photo_id = update.message.photo[-1].file_id
+        set_user(uid, photo_id=photo_id)
+        if step == "edit_photo":
+            set_user(uid, step="edit_menu")
+            await update.message.reply_text(T[lang]["saved"], reply_markup=kb_edit(lang))
+            return
+        set_user(uid, step="idle")
+        await update.message.reply_text(T[lang]["saved"], reply_markup=kb_menu(lang, uid))
 
 # ================= ROUTER =================
-PROFILE_STEPS = {
-    "lang",
-    "pro_gender", "pro_looking", "pro_age", "pro_city", "pro_bio", "pro_photo",
-    "edit_menu", "edit_age", "edit_city", "edit_bio", "edit_photo",
-}
-
 async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uid = update.effective_user.id
     upsert(uid)
@@ -666,33 +724,32 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["banned"], reply_markup=ReplyKeyboardRemove())
         return
 
-    # shortcuts: start/sta typed (no slash)
     if low in ("start", "sta"):
         await start(update, context)
         return
 
-    # language selection
+    # language
     if step == "lang":
         if text.upper().startswith("K"):
             set_user(uid, lang="kh", step="idle")
-            await update.message.reply_text(T["kh"]["lang_saved"], reply_markup=kb_menu("kh"))
+            await update.message.reply_text(T["kh"]["lang_saved"], reply_markup=kb_menu("kh", uid))
             return
         if text.upper().startswith("E"):
             set_user(uid, lang="en", step="idle")
-            await update.message.reply_text(T["en"]["lang_saved"], reply_markup=kb_menu("en"))
+            await update.message.reply_text(T["en"]["lang_saved"], reply_markup=kb_menu("en", uid))
             return
         await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_language())
         return
 
-    # If profile not complete and user is idle -> force Create Profile button
+    # If profile incomplete and idle -> force Create Profile
     if (not has_profile(uid)) and (step == "idle"):
         if text == T[lang]["btn_create_profile"]:
             await create_profile(update, context)
             return
-        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang))
+        await update.message.reply_text(T[lang]["need_profile"], reply_markup=kb_menu(lang, uid))
         return
 
-    # Menu buttons
+    # menu buttons
     if text == T[lang]["btn_create_profile"]:
         await create_profile(update, context); return
     if text == T[lang]["btn_match"]:
@@ -702,9 +759,90 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if text == T[lang]["btn_edit"]:
         await edit_profile(update, context); return
     if text == T[lang]["btn_help"]:
-        await update.message.reply_text(T[lang]["help"], reply_markup=kb_menu(lang)); return
+        await update.message.reply_text(T[lang]["help"], reply_markup=kb_menu(lang, uid)); return
+    if text == T[lang]["btn_admin"]:
+        await admin_panel(update, context); return
 
-    # Edit menu
+    # admin panel actions (buttons only)
+    if step == "admin_menu":
+        if not is_admin(uid):
+            await show_menu(update, context); return
+
+        if text == T[lang]["adm_close"]:
+            set_user(uid, step="idle")
+            await show_menu(update, context)
+            return
+
+        if text == T[lang]["adm_stats"]:
+            total = db_one("SELECT COUNT(*) FROM users")[0]
+            banned_count = db_one("SELECT COUNT(*) FROM users WHERE banned=1")[0]
+            await update.message.reply_text(f"Stats:\nUsers: {total}\nBanned: {banned_count}", reply_markup=kb_admin(lang))
+            return
+
+        if text == T[lang]["adm_reports"]:
+            rows = db_all("SELECT reporter, reported, reason, created_at FROM reports ORDER BY id DESC LIMIT 10")
+            if not rows:
+                await update.message.reply_text(T[lang]["adm_reports_empty"], reply_markup=kb_admin(lang))
+                return
+            lines = [T[lang]["adm_reports_title"]]
+            for r, rep, reason, ts in rows:
+                lines.append(f"- reporter:{r} -> reported:{rep} | {reason} | {ts:%Y-%m-%d %H:%M}")
+            await update.message.reply_text("\n".join(lines), reply_markup=kb_admin(lang))
+            return
+
+        # reply-based actions (no typing)
+        replied = update.message.reply_to_message
+        if not replied or not replied.from_user:
+            await update.message.reply_text(T[lang]["adm_need_reply"], reply_markup=kb_admin(lang))
+            return
+        target_uid = replied.from_user.id
+
+        if text == T[lang]["adm_ban_reply"]:
+            set_user(target_uid, banned=1, step="idle")
+            await update.message.reply_text(T[lang]["adm_banned_ok"].format(uid=target_uid), reply_markup=kb_admin(lang))
+            return
+
+        if text == T[lang]["adm_unban_reply"]:
+            set_user(target_uid, banned=0, step="idle")
+            await update.message.reply_text(T[lang]["adm_unbanned_ok"].format(uid=target_uid), reply_markup=kb_admin(lang))
+            return
+
+        if text == T[lang]["adm_star_reply"]:
+            current = get_stars(target_uid)
+            set_user(target_uid, stars=current + 3)
+            await update.message.reply_text(T[lang]["adm_star_ok"].format(uid=target_uid), reply_markup=kb_admin(lang))
+            return
+
+        await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_admin(lang))
+        return
+
+    # report step
+    if step == "report_reason":
+        target = get_current(context)
+        if not target:
+            set_user(uid, step="idle")
+            await show_menu(update, context)
+            return
+
+        # map reasons for DB
+        reason_map = {
+            T[lang]["rep_spam"]: "spam",
+            T[lang]["rep_fake"]: "fake",
+            T[lang]["rep_bad"]: "harassment",
+            T[lang]["rep_other"]: "other",
+        }
+        if text not in reason_map:
+            await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_report(lang))
+            return
+
+        add_report(uid, target, reason_map[text])
+        set_user(uid, step="idle")
+        await update.message.reply_text(T[lang]["report_done"], reply_markup=kb_menu(lang, uid))
+        # move on
+        await show_candidate(update, context)
+        return
+
+    # edit menu
     if step == "edit_menu":
         if text == T[lang]["edit_age"]:
             set_user(uid, step="edit_age")
@@ -729,7 +867,7 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_edit(lang))
         return
 
-    # Profile create flow
+    # profile create
     if step == "pro_gender":
         g = normalize_gender(lang, text)
         if not g:
@@ -747,15 +885,12 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     if step in ("pro_age", "edit_age"):
-        # allow button ages and numeric input
         if text == "41+":
             await update.message.reply_text(T[lang]["age_type"], reply_markup=ReplyKeyboardRemove())
             return
-
         if not text.isdigit():
             await update.message.reply_text(T[lang]["age_pick"], reply_markup=kb_age(lang))
             return
-
         age = int(text)
         if age < 18:
             set_user(uid, banned=1, step="idle")
@@ -766,7 +901,6 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
             return
 
         set_user(uid, age=age)
-
         if step == "edit_age":
             set_user(uid, step="edit_menu")
             await update.message.reply_text(T[lang]["saved"], reply_markup=kb_edit(lang))
@@ -782,12 +916,10 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_city(lang))
             return
         set_user(uid, city_key=ckey)
-
         if step == "edit_city":
             set_user(uid, step="edit_menu")
             await update.message.reply_text(T[lang]["saved"], reply_markup=kb_edit(lang))
             return
-
         set_user(uid, step="pro_bio")
         await update.message.reply_text(T[lang]["bio"], reply_markup=kb_bio(lang))
         return
@@ -818,61 +950,37 @@ async def router(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 await update.message.reply_text(T[lang]["saved"], reply_markup=kb_edit(lang))
                 return
             set_user(uid, step="idle")
-            await update.message.reply_text(T[lang]["saved"], reply_markup=kb_menu(lang))
+            await update.message.reply_text(T[lang]["saved"], reply_markup=kb_menu(lang, uid))
             return
         await update.message.reply_text(T[lang]["btn_only"], reply_markup=kb_photo(lang))
         return
 
-    # Match buttons
+    # match buttons
     if text == T[lang]["btn_like"]:
         await handle_like(update, context); return
     if text == T[lang]["btn_skip"]:
         await handle_skip(update, context); return
     if text == T[lang]["btn_reveal"]:
         await handle_reveal(update, context); return
+    if text == T[lang]["btn_report"]:
+        await handle_report(update, context); return
 
-    # default
     await show_menu(update, context)
-
-async def photo_router(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    uid = update.effective_user.id
-    upsert(uid)
-    step, lang, banned = get_flags(uid)
-    if banned == 1:
-        return
-    if step not in ("pro_photo", "edit_photo"):
-        return
-    if update.message.photo:
-        photo_id = update.message.photo[-1].file_id
-        set_user(uid, photo_id=photo_id)
-        if step == "edit_photo":
-            set_user(uid, step="edit_menu")
-            await update.message.reply_text(T[lang]["saved"], reply_markup=kb_edit(lang))
-            return
-        set_user(uid, step="idle")
-        await update.message.reply_text(T[lang]["saved"], reply_markup=kb_menu(lang))
 
 # ================= MAIN =================
 def main():
     init_db()
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    # commands
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CommandHandler("sta", sta))
     app.add_handler(CommandHandler("pro", create_profile))
+    app.add_handler(CommandHandler("id", cmd_id))
 
-    # admin commands
-    app.add_handler(CommandHandler("stats", cmd_stats))
-    app.add_handler(CommandHandler("ban", cmd_ban))
-    app.add_handler(CommandHandler("unb", cmd_unb))
-    app.add_handler(CommandHandler("add", cmd_add))
-
-    # photo + text
     app.add_handler(MessageHandler(filters.PHOTO, photo_router))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, router))
 
-    print("🔥 DateMeBot running (Postgres)")
+    print("🔥 DateMeBot running (Postgres + Report + Admin Panel)")
     app.run_polling()
 
 if __name__ == "__main__":
